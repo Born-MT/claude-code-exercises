@@ -1,6 +1,6 @@
 # Crew workshop: an orchestrator agent and its subagents, looped and scheduled
 
-**Starter files:** [8-crew/](8-crew/) · **Budget:** one 3-hour session, then two weeks of
+Session 4 of the [training path](TRAINING.md) · **Starter files:** [8-crew/](8-crew/) · **Budget:** one 3-hour session, then two weeks of
 probation · **Entry gate:** the [agent workshop](AGENT-WORKSHOP.md) exit gate
 
 Advanced. The agent workshop hired one agent for one job. This one hires a small crew: an
@@ -67,6 +67,8 @@ Each attendee:
 
 - [ ] The agent workshop exit gate passed: an agent on Tier 0 with a JOB.md, a shift that
   passed its dry runs, and a kill switch you've used.
+- [ ] That agent's two-week probation done: two weekly reviews and a tier decision. The
+  crew multiplies whatever the single agent gets wrong, so the agent has to hold first.
 - [ ] One job that needs two or more sources. Good ones: "match production errors to
   tracker issues and the commit that likely caused them"; "for each PR waiting on review,
   pull its ticket and its CI history and say what's blocking it".

@@ -34,7 +34,9 @@ in**, and this repository is the instructions, templates and starter files you c
 ### The workshops
 
 Each is a single 3-hour session with its own starter files. Run them in order; each one's
-exit gate is the next one's entry gate.
+exit gate is the next one's entry gate. The [training path](workshops/harness/TRAINING.md)
+lays them out over five weeks, with a kickoff talk, the homework between sessions and a
+facilitator checklist.
 
 | Workshop | You leave with |
 |----------|----------------|

@@ -3,7 +3,8 @@
 **Starter files:** [README.md](README.md) · **Budget:** one 3-hour session · **Entry gate:**
 a real repo, a branch, and a test command you trust
 
-Goes with the team deck "The Harness, Not the Model". The deck makes the claim: the same
+Session 1 of the [training path](TRAINING.md), after the kickoff talk on the team deck "The
+Harness, Not the Model". The deck makes the claim: the same
 model scores very differently depending on the harness around it. This workshop makes it
 true for your repo. Everyone leaves with the starter files installed, every placeholder
 filled in, the Stop hook tested by tripping it, and the lot on a branch for review.
@@ -305,8 +306,9 @@ in. (It may show genuine angle brackets in your own code examples; read the matc
 
 ## Facilitator notes
 
-- **Keep the opening to 15 minutes.** The deck has 14 slides; show the claim, the six
-  parts and the discussion slide, and leave the rest for reading afterwards.
+- **Keep the opening to 15 minutes.** If the team saw the kickoff talk, recap the six
+  parts (slide 5) and move on. If not, show slides 3, 5 and 14 of the 15 (the claim, the
+  six parts, the training path) and send the deck as reading.
 - **Lab 2 is the workshop.** If time runs short, cut Lab 5 to a homework decision and
   shorten Lab 3, but don't cut the live trip of the Stop hook. A hook nobody has seen fire
   is a hook nobody trusts.

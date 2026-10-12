@@ -1,6 +1,6 @@
 # Agent workshop: hire a scheduled agent onto your harness
 
-**Starter files:** [7-agent/](7-agent/) · **Budget:** one 3-hour session, then a two-week
+Session 3 of the [training path](TRAINING.md) · **Starter files:** [7-agent/](7-agent/) · **Budget:** one 3-hour session, then a two-week
 probation at 5 minutes a day · **Entry gate:** the [harness workshop](WORKSHOP.md) exit gate
 
 The first workshop gave your repo a harness: permissions, a Stop hook, memory, a test-first

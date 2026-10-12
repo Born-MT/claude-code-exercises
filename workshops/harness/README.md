@@ -9,7 +9,8 @@ repository. Copy each one to the path in **Copy to**, then replace every `<place
 with your repo's real commands, paths and names. A file with a wrong command in it is
 worse than none.
 
-To install them as a team in one 3-hour session, run the [workshop](WORKSHOP.md); each
+To train a team on them, follow the [training path](TRAINING.md): a kickoff talk and four
+3-hour workshops in order. To install them as a team in one 3-hour session, run the [harness workshop](WORKSHOP.md); each
 participant records evidence in [`workshop-log.md`](workshop-log.md).
 
 Once the harness holds, the [agent workshop](AGENT-WORKSHOP.md) puts a scheduled agent to

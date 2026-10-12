@@ -1,6 +1,6 @@
 # Commands workshop: build, test and share custom commands
 
-**Starter files:** [commands/](commands/) · **Budget:** one 3-hour session · **Entry gate:**
+Session 2 of the [training path](TRAINING.md), optional · **Starter files:** [commands/](commands/) · **Budget:** one 3-hour session · **Entry gate:**
 the [harness workshop](WORKSHOP.md) exit gate, and three prompts you've typed more than
 once
 

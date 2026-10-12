@@ -20,11 +20,16 @@ Check the hook runs: `<command>` · Runs in: <time> · Exits 0 on the branch: <y
 
 Anything that got through: <what, and the rule you'd add>
 
-## Lab 3 — Memory
+## Lab 3 — Memory and context
+
+`/context` before: <total> · largest consumer: <what> · After: <total> · rule file listed: <yes / no>
 
 Rule file: `.claude/rules/<area>.md` · Glob matches: <one real file>
 
 Rule tested: <rule> · Task: <task> · Followed: <yes / no: what Claude did instead>
+
+Failure our sessions are most prone to: <poisoning / distraction / confusion / clash> ·
+Counter: <write / select / compress / isolate>: <the habit or file>
 
 ## Lab 4 — Loop and tools
 

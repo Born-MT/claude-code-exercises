@@ -7,7 +7,7 @@ entry gate.
 | # | Session | When | Length | Entry gate | Leaves with |
 |---|---------|------|--------|------------|-------------|
 | 0 | **Kickoff talk:** deck "The Harness, Not the Model" | Before week 1 | 60 min | None | The six parts, the team's answers to the five discussion questions, three first steps with names on them |
-| 1 | **[Harness workshop](WORKSHOP.md)** | Week 1 | 3 h | A real repo, a branch, a test command | Permissions, a Stop hook tested by tripping it, CLAUDE.md, a test-first skill, a read-only reviewer |
+| 1 | **[Harness workshop](WORKSHOP.md)** | Week 1 | 3 h | A real repo, a branch, a test command | Permissions, a Stop hook tested by tripping it, a context check, CLAUDE.md, a test-first skill, a read-only reviewer |
 | 2 | **[Commands workshop](COMMANDS-WORKSHOP.md)** *(optional)* | Week 2 | 3 h | Session 1's exit gate, three repeated prompts | Three commands (context, action, forked), tested and shared |
 | 3 | **[Agent workshop](AGENT-WORKSHOP.md)** | Week 3 | 3 h | Session 1's exit gate | One scheduled agent at Tier 0, on a routine or a GitHub Actions cron |
 | — | Agent probation | Weeks 3–5 | 5 min a day, 15 min a week | — | Two weekly reviews and a tier decision |
@@ -30,18 +30,18 @@ keep retyping the same prompts, or skip it and go straight from the harness to t
 
 ## Session 0: the kickoff talk
 
-The deck "The Harness, Not the Model" has 15 slides. Present it as a talk of about 60
+The deck "The Harness, Not the Model" has 16 slides. Present it as a talk of about 60
 minutes, the week before the harness workshop.
 
 | Slides | Time | Do |
 |--------|------|----|
 | Cover to "parts" (1–5) | 15 min | The claim and the six parts |
-| Loop to verify (6–11) | 15 min | One part per slide; skip any the team already does well |
-| Discuss (12) | 20 min | The five questions. Write down every answer that names a repo, a command or a person |
-| First steps and the training path (13–14) | 10 min | Fill the brackets on slide 13 from the discussion; show slide 14 and book the sessions |
+| Loop to verify (6–12) | 15 min | One part per slide, plus the four ways a context goes bad (9) after memory; skip any part the team already does well |
+| Discuss (13) | 20 min | The five questions. Write down every answer that names a repo, a command or a person |
+| First steps and the training path (14–15) | 10 min | Fill the brackets on slide 14 from the discussion; show slide 15 and book the sessions |
 
 If there's no separate slot, send the deck as a pre-read, and the harness workshop's
-15-minute opening shows slides 3, 5 and 14 only.
+15-minute opening shows slides 3, 5 and 15 only.
 
 ## Before week 1
 

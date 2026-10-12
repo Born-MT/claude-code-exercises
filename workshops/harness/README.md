@@ -24,6 +24,7 @@ and two weeks of probation at the lowest autonomy tier.
 | 2 Tools | [`reviewer.agent.md`](2-tools/reviewer.agent.md) | `.claude/agents/reviewer.md` | A reviewer subagent with read and search tools only, so it can't edit what it reviews | Week 4 Lab A |
 | 2 Tools | [`mcp.json`](2-tools/mcp.json) | `.mcp.json` | One remote MCP server with a read-only token taken from the environment | Week 5 Lab A |
 | 3 Memory | [`CLAUDE.starter.md`](3-memory/CLAUDE.starter.md) | `CLAUDE.md` | A starting CLAUDE.md: commands, boundaries, conventions, never-do rules | Week 1 Lab A |
+| 3 Memory | [`context-check.md`](3-memory/context-check.md) | your journal | The four ways a context goes bad, the four moves that counter them, and your `/context` readings | Week 1 Lab B |
 | 3 Memory | [`rule.area.md`](3-memory/rule.area.md) | `.claude/rules/<area>.md` | Rules that load only for files matching a glob | Week 1, Exercise 1.2 |
 | 4 Reliability | [`run-unattended.sh`](4-reliability/run-unattended.sh) | `scripts/claude-unattended.sh` | A headless run that is locked down, turn-capped, budget-capped and advisory only | Week 5 Lab B |
 | 5 Permissions | [`settings.json`](5-permissions/settings.json) | `.claude/settings.json` | Deny rules for secrets, pushes and deploys; ask before migrations; registers the Stop hook | Week 0 |

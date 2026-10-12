@@ -49,10 +49,10 @@ flowchart TD
     G -->|no| NB["Use the demo repo today<br/>building the check is your first job after"]
     NB --> L2
     L2 --> BR["Break, 10 min"]
-    BR --> L3["Lab 3: memory<br/>CLAUDE.md plus one path rule, 25 min"]
+    BR --> L3["Lab 3: memory and context<br/>/context, CLAUDE.md, one path rule, 30 min"]
     L3 --> L4["Lab 4: loop and tools<br/>fix-with-test skill, reviewer subagent, 35 min"]
     L4 --> L5["Lab 5: reliability and MCP<br/>decide, don't install, 15 min"]
-    L5 --> C["Close<br/>exit gate, branch, one commitment, 20 min"]
+    L5 --> C["Close<br/>exit gate, branch, one commitment, 15 min"]
 ```
 
 ---
@@ -65,10 +65,10 @@ flowchart TD
 | 2 | **Lab 1** — signal audit. | 15 min | `signal-audit.md` filled in, with a decision | `6-verification/signal-audit.md` |
 | 3 | **Lab 2** — permissions and the Stop hook. | 45 min | `.claude/settings.json`, `.claude/hooks/verify-before-stop.*`; three test results in the log | `5-permissions/`, `6-verification/` |
 | 4 | Break. | 10 min | — | — |
-| 5 | **Lab 3** — memory. | 25 min | `CLAUDE.md`, one `.claude/rules/<area>.md`; one rule test in the log | `3-memory/` |
+| 5 | **Lab 3** — memory and context. | 30 min | Two `/context` readings; `CLAUDE.md`, one `.claude/rules/<area>.md`; one rule test; one failure and its counter named | `3-memory/` |
 | 6 | **Lab 4** — loop and tools. | 35 min | `.claude/skills/fix-with-test/SKILL.md`, `.claude/agents/reviewer.md`; one skill run and one review in the log | `1-loop/`, `2-tools/reviewer.agent.md` |
 | 7 | **Lab 5** — reliability and MCP, as decisions. | 15 min | Two decisions in the log | `4-reliability/`, `2-tools/mcp.json` |
-| 8 | **Close.** Exit gate in pairs. Commit on the branch, open it for review. One commitment each. | 20 min | Branch or PR; commitment in the log | `workshop-log.md` |
+| 8 | **Close.** Exit gate in pairs. Commit on the branch, open it for review. One commitment each. | 15 min | Branch or PR; commitment in the log | `workshop-log.md` |
 | | **Total** | **180 min** | | |
 
 Copy [`workshop-log.md`](workshop-log.md) into your journal before Lab 1. Every lab writes
@@ -171,37 +171,48 @@ changed. The hook skips clean trees on purpose. Check `git status` shows a chang
 you test. The second most common: the hook runs under the other shell. Run `/hooks` to see
 the command, and match it to the file you copied.
 
-### Lab 3 — Memory
+### Lab 3 — Memory and context
 
 | | |
 |---|---|
-| **Goal** | A CLAUDE.md that holds what Claude can't work out from the code, and one rule that loads only where it applies. |
-| **Targets** | Part 3, memory. |
+| **Goal** | Know what's in Claude's context before you ask anything, and keep only what earns its place: a CLAUDE.md that holds what Claude can't work out from the code, and one rule that loads only where it applies. |
+| **Targets** | Part 3, memory; the four ways a context goes bad and the moves that counter them. |
 | **Prereq** | None. Lab 2 done, so the commands in CLAUDE.md match the ones in settings. |
-| **Time** | 25 min |
+| **Time** | 30 min |
 | **Real-task shape** | The area of your repo Claude most often gets wrong. Examples: the data layer, generated files, one framework's conventions. |
 | **Track relevance** | Programme Week 1 Lab A and Exercise 1.2; Track 1 (Onboarder), Track 4 (Archaeologist). |
 
 **Steps**
 
-1. If the repo has a CLAUDE.md, open it next to `3-memory/CLAUDE.starter.md` and add only
+1. **Read the context first.** Copy `3-memory/context-check.md` into your journal. Start a
+   fresh session and run `/context` before asking anything. Write down the total and the
+   largest consumer: memory files, MCP tools, or something else.
+2. If the repo has a CLAUDE.md, open it next to `3-memory/CLAUDE.starter.md` and add only
    the sections it's missing. If not, copy the starter and fill it in. Keep it short:
-   commands, boundaries, conventions, never-do rules.
-2. Pick the area Claude gets wrong. Copy `3-memory/rule.area.md` to
-   `.claude/rules/<area>.md`, set the `paths:` glob to that area, and write two or three
-   rules for it.
-3. Test one rule: in a fresh session, ask for a small change in that area that the rule
-   should affect. Read the diff. Did it follow the rule?
-4. Record the result in `workshop-log.md` → Lab 3.
+   commands, boundaries, conventions, never-do rules. Delete any line that fails the test
+   "would Claude plausibly get this wrong without it?".
+3. Pick the area Claude gets wrong. Copy `3-memory/rule.area.md` to
+   `.claude/rules/<area>.md`, set the `paths:` glob to that area, and move or write two or
+   three rules for it.
+4. Test one rule: in a fresh session, ask for a small change in that area that the rule
+   should affect. Read the diff. Did it follow the rule? Run `/context` again and check the
+   rule file is listed among the memory files.
+5. **Name your failure.** From the card's table, pick the context failure your sessions
+   are most prone to (poisoning, distraction, confusion or clash) and the move that
+   counters it (write, select, compress or isolate). One line each, from something you've
+   actually seen.
+6. Record the readings, the rule test and the failure in `workshop-log.md` → Lab 3.
 
 **Acceptance check**
 
 `.claude/rules/<area>.md` exists with a `paths:` glob that matches at least one real file
-(`git ls-files '<glob>'` lists it), and the log records one rule test with its outcome.
+(`git ls-files '<glob>'` lists it), and the log records two `/context` readings, one rule
+test with its outcome, and one failure with its counter.
 
 **Journal entry**
 
-`workshop-log.md` → Lab 3: the rule, the task, followed or not.
+`workshop-log.md` → Lab 3: the two readings, the rule, the task, followed or not, and the
+failure and counter you named.
 
 **Common failure**
 
@@ -295,6 +306,7 @@ Check each other's in pairs before the session ends.
 | The Stop hook blocks a finish while checks fail | Three piped-JSON exit codes and one live block in the log |
 | Secrets, pushes and deploys are denied | Deny attempts in the log; no placeholders left in `settings.json` |
 | CLAUDE.md and one path-scoped rule, tested once | Files on the branch; rule test in the log |
+| You know what's in the context and what goes wrong with it | Two `/context` readings; one failure and its counter named |
 | The test-first skill and the read-only reviewer, used once | Files on the branch; fail-then-pass output and review in the log |
 | Unattended runs and MCP decided, not guessed | Two decisions with owners or conditions |
 | Everything on a branch for review | Branch or PR link |
@@ -307,7 +319,7 @@ in. (It may show genuine angle brackets in your own code examples; read the matc
 ## Facilitator notes
 
 - **Keep the opening to 15 minutes.** If the team saw the kickoff talk, recap the six
-  parts (slide 5) and move on. If not, show slides 3, 5 and 14 of the 15 (the claim, the
+  parts (slide 5) and move on. If not, show slides 3, 5 and 15 of the 16 (the claim, the
   six parts, the training path) and send the deck as reading.
 - **Lab 2 is the workshop.** If time runs short, cut Lab 5 to a homework decision and
   shorten Lab 3, but don't cut the live trip of the Stop hook. A hook nobody has seen fire

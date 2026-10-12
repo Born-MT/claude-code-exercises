@@ -1,0 +1,98 @@
+# Team-owned scheduled agent on GitHub Actions.
+# Copy to .github/workflows/<agent name>.yml. Needs the Claude GitHub App on the repo and an
+# ANTHROPIC_API_KEY repository or organization secret (a team key, not a personal token).
+#
+# Least privilege per job:
+# - "shift" runs Claude with a read-only token. Its inputs and memory are fetched by plain
+#   steps before Claude starts, so Claude needs no GitHub write access and no gh command.
+#   The action's base tools include file edits; those stay on the throwaway runner because
+#   nothing in this job can push.
+# - "deliver" posts the report to the pinned log issue. Claude doesn't run in it.
+#
+# Notes:
+# - cron is UTC. Scheduled workflows run only from the default branch, and GitHub disables
+#   them in public repos after 60 days without activity.
+# - Scheduled runs are attributed to whoever last changed the cron line; if that's a bot,
+#   list it in allowed_bots.
+name: <agent name>
+
+on:
+  schedule:
+    - cron: "7 6 * * 1-5"   # 06:07 UTC, weekdays
+  workflow_dispatch: {}     # "Run workflow" button, also from a branch, for dry runs
+
+concurrency:
+  group: <agent name>
+  cancel-in-progress: false
+
+env:
+  LOG_ISSUE: "<number of the pinned agent log issue>"
+
+jobs:
+  shift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: read
+      actions: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Load previous shifts and today's inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p agent-out/inputs
+          gh issue view "$LOG_ISSUE" --comments | tail -n 200 > agent-out/previous.md || true
+          # One read-only command per input in JOB.md, each writing a file, for example:
+          # gh run list --branch main --status failure --limit 20 --json databaseId,displayTitle,url,createdAt > agent-out/inputs/failed-runs.json
+          <input read command> > agent-out/inputs/<input>.txt
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}   # read-only, per this job's permissions
+          prompt: "/daily-shift"
+          # One Bash rule per command; a compound check (a && b) needs a rule for each part.
+          claude_args: |
+            --max-turns 30
+            --allowedTools "Read,Grep,Glob,Edit(agent-out/**),Bash(<check command> *),Bash(git log *),Bash(git diff *)"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-out
+          path: |
+            agent-out/report.md
+            agent-out/journal-entry.md
+          if-no-files-found: warn
+
+  deliver:
+    needs: shift
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: agent-out
+          path: agent-out
+
+      - name: Post the report to the log issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -f agent-out/report.md ]; then
+            { cat agent-out/report.md; echo; echo "Run: $RUN_URL"; } > comment.md
+            gh issue comment "$LOG_ISSUE" --body-file comment.md
+          else
+            gh issue comment "$LOG_ISSUE" --body "Shift produced no report. Run: $RUN_URL"
+          fi

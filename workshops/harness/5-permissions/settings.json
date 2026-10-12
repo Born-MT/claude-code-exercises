@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)",
+      "Bash(git push *)",
+      "PowerShell(git push *)",
+      "Bash(<production deploy command> *)",
+      "PowerShell(<production deploy command> *)"
+    ],
+    "ask": [
+      "Bash(<database migration command> *)",
+      "PowerShell(<database migration command> *)"
+    ],
+    "allow": [
+      "Bash(<test command> *)",
+      "PowerShell(<test command> *)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PROJECT_DIR}\"/.claude/hooks/verify-before-stop.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

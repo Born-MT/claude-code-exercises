@@ -1,0 +1,16 @@
+{
+  "env": {
+    "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Edit(agent-out/**)",
+      "mcp__<tracker>__*",
+      "Bash(./scripts/api-get.sh *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git diff *)",
+      "Bash(<check command> *)"
+    ]
+  }
+}

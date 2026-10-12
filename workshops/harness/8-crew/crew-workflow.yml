@@ -1,0 +1,84 @@
+# The crew on a GitHub Actions schedule. Copy to .github/workflows/<crew name>.yml.
+# Same shape as the agent workshop's workflow: Claude runs with a read-only GitHub token;
+# a separate job posts the report. Needs repository or organization secrets:
+# ANTHROPIC_API_KEY (team key), TRACKER_READONLY_TOKEN, API_READONLY_TOKEN.
+name: <crew name>
+
+on:
+  schedule:
+    - cron: "17 7-17/2 * * 1-5"   # every 2 hours, 07:17-17:17 UTC, weekdays
+  workflow_dispatch: {}
+
+concurrency:
+  group: <crew name>
+  cancel-in-progress: false
+
+env:
+  LOG_ISSUE: "<number of the pinned crew log issue>"
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: read
+      id-token: write
+    env:
+      TRACKER_READONLY_TOKEN: ${{ secrets.TRACKER_READONLY_TOKEN }}
+      API_READONLY_TOKEN: ${{ secrets.API_READONLY_TOKEN }}
+      CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 50   # repo-analyst reads recent history
+
+      - name: Load previous cycles
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p agent-out
+          gh issue view "$LOG_ISSUE" --comments | tail -n 200 > agent-out/previous.md || true
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          prompt: "/run-cycle"
+          claude_args: |
+            --agent orchestrator
+            --max-turns 40
+            --max-budget-usd 3
+            --allowedTools "Agent,Skill,Read,Grep,Glob,Edit(agent-out/**),mcp__<tracker>__*,Bash(./scripts/api-get.sh *),Bash(git log *),Bash(git show *),Bash(git diff *)"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-out
+          path: agent-out/report.md
+          if-no-files-found: warn
+
+  deliver:
+    needs: cycle
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: agent-out
+          path: agent-out
+      - name: Post the report to the log issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -f agent-out/report.md ]; then
+            { cat agent-out/report.md; echo; echo "Run: $RUN_URL"; } > comment.md
+            gh issue comment "$LOG_ISSUE" --body-file comment.md
+          else
+            gh issue comment "$LOG_ISSUE" --body "Cycle produced no report. Run: $RUN_URL"
+          fi

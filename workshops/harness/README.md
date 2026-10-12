@@ -29,6 +29,12 @@ and two weeks of probation at the lowest autonomy tier.
 | 6 Verification | [`verify-before-stop.sh`](6-verification/verify-before-stop.sh) | `.claude/hooks/verify-before-stop.sh` | Stop hook: Claude can't finish while the checks fail | Week 3 Lab C |
 | 6 Verification | [`verify-before-stop.ps1`](6-verification/verify-before-stop.ps1) | `.claude/hooks/verify-before-stop.ps1` | The same hook for machines without Git Bash | Week 3 Lab C |
 | 6 Verification | [`signal-audit.md`](6-verification/signal-audit.md) | your journal | Which check the Stop hook should run, and whether it's fast and trusted | Week 2 Lab B |
+| Commands | [`command-spec.md`](commands/command-spec.md) | your journal | The spec card to fill before writing a command | Commands workshop |
+| Commands | [`pr-context.SKILL.md`](commands/pr-context.SKILL.md) | `.claude/skills/pr-context/SKILL.md` | Context command: injects the current PR, files and checks, then reviews | Commands workshop |
+| Commands | [`release-notes/`](commands/release-notes/) | `.claude/skills/release-notes/` | Action command only you can start, with a supporting style guide | Commands workshop |
+| Commands | [`explore-area.SKILL.md`](commands/explore-area.SKILL.md) | `.claude/skills/explore-area/SKILL.md` | Forked command: explores in a subagent, returns a 25-line map | Commands workshop |
+| Commands | [`command-tests.md`](commands/command-tests.md) | your journal | Eight tests to run on every command in fresh sessions | Commands workshop |
+| Commands | [`plugin/`](commands/plugin/) | a marketplace repository | `marketplace.json` and `plugin.json` for sharing commands across repositories | Commands workshop |
 | 7 Agent | [`JOB.md`](7-agent/JOB.md) | `docs/agents/<name>/JOB.md` | A scheduled agent's standing orders: one job, output, tier, limits, metric, kill switch | Agent workshop |
 | 7 Agent | [`daily-shift.SKILL.md`](7-agent/daily-shift.SKILL.md) | `.claude/skills/daily-shift/SKILL.md` | The procedure for one shift; treats everything it reads as data | Agent workshop |
 | 7 Agent | [`routine-prompt.md`](7-agent/routine-prompt.md) | a routine at claude.ai/code/routines | The short routine prompt: memory, the shift, delivery to `claude/` branches | Agent workshop |
@@ -51,8 +57,10 @@ and two weeks of probation at the lowest autonomy tier.
 3. **CLAUDE.md**, then path-scoped rules for the areas Claude gets wrong.
 4. **The skill and the reviewer subagent**, once the basics hold.
 5. **MCP and unattended runs last**, with read-only credentials and a named owner.
-6. **A scheduled agent** only after all of the above, starting at Tier 0.
-7. **A crew** (an orchestrator with worker subagents) only after one agent has held its
+6. **Commands** for the prompts you keep retyping; the [commands workshop](COMMANDS-WORKSHOP.md)
+   builds three and shares them.
+7. **A scheduled agent** only after all of the above, starting at Tier 0.
+8. **A crew** (an orchestrator with worker subagents) only after one agent has held its
    tier for two weeks. The [crew workshop](CREW-WORKSHOP.md) builds it.
 
 ## Notes per file

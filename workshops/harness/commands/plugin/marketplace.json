@@ -1,0 +1,14 @@
+{
+  "name": "<team>-marketplace",
+  "description": "Claude Code plugins for <team>",
+  "owner": {
+    "name": "<team or owner name>"
+  },
+  "plugins": [
+    {
+      "name": "team-commands",
+      "source": "./plugins/team-commands",
+      "description": "<Team>'s shared Claude Code commands"
+    }
+  ]
+}

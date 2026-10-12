@@ -2,7 +2,8 @@
 
 Hands-on exercises for senior engineers learning to use [Claude Code](https://code.claude.com/docs)
 on real work: seven weeks of labs and exercises, nine exercise tracks, journal templates,
-and three workshops that build a working harness, a scheduled agent and an agent crew.
+and four workshops that build a working harness, custom commands, a scheduled agent and an
+agent crew.
 
 There's no code to run here. Every exercise is done **in a repository you already work
 in**, and this repository is the instructions, templates and starter files you copy from.
@@ -16,7 +17,7 @@ in**, and this repository is the instructions, templates and starter files you c
 | [`journal/`](journal/) | The journal templates the exercises write to: baseline, friction log, context audit, delegation log, review ratio, failure log |
 | [`competency-matrix.md`](competency-matrix.md) | Six dimensions, four levels. Rate yourself in Week 0 and again in Week 6 |
 | [`exercise-template.md`](exercise-template.md) | The format for adding an exercise |
-| [`workshops/harness/`](workshops/harness/) | Three 3-hour workshops and their starter files (see below) |
+| [`workshops/harness/`](workshops/harness/) | Four 3-hour workshops and their starter files (see below) |
 
 ### The weeks
 
@@ -38,6 +39,7 @@ exit gate is the next one's entry gate.
 | Workshop | You leave with |
 |----------|----------------|
 | [Harness workshop](workshops/harness/WORKSHOP.md) | Permissions, a Stop hook that won't let Claude finish while your checks fail, CLAUDE.md, a test-first skill and a read-only reviewer, all in your repo and tested |
+| [Commands workshop](workshops/harness/COMMANDS-WORKSHOP.md) | Three custom commands in your repo (one that loads context, one only you can start, one that explores in a separate context), each tested in fresh sessions and shared with the team |
 | [Agent workshop](workshops/harness/AGENT-WORKSHOP.md) | One scheduled agent with a job description, dry runs on past days, a routine or GitHub Actions schedule, and two weeks of probation at the lowest autonomy tier |
 | [Crew workshop](workshops/harness/CREW-WORKSHOP.md) (advanced) | An orchestrator agent that dispatches worker subagents, each with one MCP or API connection, checks their results against contracts, and runs in a loop and on a schedule |
 

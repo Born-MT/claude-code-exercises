@@ -1,6 +1,6 @@
-# Training path: from the harness to an agent crew
+# Training path: from the harness to the company setup
 
-One talk and four workshops, in order, over five weeks. Each workshop is one day of about
+One talk and five workshops, in order, over six weeks. Each workshop is one day of about
 three hours in the participant's own repository, and each one's exit gate is the next one's
 entry gate.
 
@@ -12,6 +12,7 @@ entry gate.
 | 3 | **[Agent workshop](AGENT-WORKSHOP.md)** | Week 3 | 3 h | Session 1's exit gate | One scheduled agent at Tier 0, on a routine or a GitHub Actions cron |
 | — | Agent probation | Weeks 3–5 | 5 min a day, 15 min a week | — | Two weekly reviews and a tier decision |
 | 4 | **[Crew workshop](CREW-WORKSHOP.md)** | Week 5 | 3 h | Session 3's exit gate and the two-week probation done | An orchestrator with MCP, API and repo workers, looped and scheduled |
+| 5 | **[Company workshop](COMPANY-WORKSHOP.md)** *(as a team)* | Week 6 | 3 h | Session 3's exit gate for at least two people in the room | The company's shared setup: a short core every session loads, a wiki loaded on demand, agent roles with limits, one schedule of every recurring task; installed and tested |
 
 ```mermaid
 flowchart TD
@@ -21,10 +22,14 @@ flowchart TD
     C --> A
     A --> P["Probation<br/>two weeks at Tier 0"]
     P --> CR["4 Crew workshop<br/>week 5"]
+    CR --> CO["5 Company workshop<br/>week 6, as a team"]
+    A --> CO
 ```
 
 The commands workshop is optional because nothing later depends on it. Run it when people
 keep retyping the same prompts, or skip it and go straight from the harness to the agent.
+The company workshop is done as one team rather than one repo each: it builds the shared
+setup that every person and every scheduled agent uses, so it comes last.
 
 ---
 
@@ -54,11 +59,11 @@ Participants:
 
 Facilitator:
 
-- Book all four sessions now: weeks 1, 2, 3 and 5. The crew date depends on the agent's
+- Book all five sessions now: weeks 1, 2, 3, 5 and 6. The crew date depends on the agent's
   probation, so don't move session 3 later without moving session 4.
 - Make the exercises repository available:
   [github.com/Born-MT/claude-code-exercises](https://github.com/Born-MT/claude-code-exercises).
-- Share the deck and the four workshop pages with the participants.
+- Share the deck and the five workshop pages with the participants.
 - **Dry-run every session yourself on one repository before it runs.** None of the hooks,
   commands, agents or crew files has been run against a live session yet. The facilitator
   dry run is their first real test, and each workshop's "Facilitator" checklist says what
@@ -72,6 +77,7 @@ Facilitator:
 | Commands | Use the three commands for a week, then make one revision each | A line a day |
 | Agent | Probation: read every shift report and check one claim; the weekly review with `7-agent/performance-review.md` | 5 min a day, 15 min a week |
 | Crew | Probation as for the agent; also record cost per cycle and which worker fails most | 5 min a day, 15 min a week |
+| Company | Each owner reviews their wiki page, role card or schedule row monthly; the schedule owner prunes tasks nobody reads | 15 min a month each |
 
 ## If someone misses a session
 

@@ -2,8 +2,8 @@
 
 Hands-on exercises for senior engineers learning to use [Claude Code](https://code.claude.com/docs)
 on real work: seven weeks of labs and exercises, nine exercise tracks, journal templates,
-and four workshops that build a working harness, custom commands, a scheduled agent and an
-agent crew.
+and five workshops that build a working harness, custom commands, a scheduled agent, an
+agent crew and the company's shared setup.
 
 There's no code to run here. Every exercise is done **in a repository you already work
 in**, and this repository is the instructions, templates and starter files you copy from.
@@ -17,7 +17,7 @@ in**, and this repository is the instructions, templates and starter files you c
 | [`journal/`](journal/) | The journal templates the exercises write to: baseline, friction log, context audit, delegation log, review ratio, failure log |
 | [`competency-matrix.md`](competency-matrix.md) | Six dimensions, four levels. Rate yourself in Week 0 and again in Week 6 |
 | [`exercise-template.md`](exercise-template.md) | The format for adding an exercise |
-| [`workshops/harness/`](workshops/harness/) | Four 3-hour workshops and their starter files (see below) |
+| [`workshops/harness/`](workshops/harness/) | Five 3-hour workshops, the training path that orders them, and their starter files (see below) |
 
 ### The weeks
 
@@ -35,7 +35,7 @@ in**, and this repository is the instructions, templates and starter files you c
 
 Each is a single 3-hour session with its own starter files. Run them in order; each one's
 exit gate is the next one's entry gate. The [training path](workshops/harness/TRAINING.md)
-lays them out over five weeks, with a kickoff talk, the homework between sessions and a
+lays them out over six weeks, with a kickoff talk, the homework between sessions and a
 facilitator checklist.
 
 | Workshop | You leave with |
@@ -44,6 +44,7 @@ facilitator checklist.
 | [Commands workshop](workshops/harness/COMMANDS-WORKSHOP.md) | Three custom commands in your repo (one that loads context, one only you can start, one that explores in a separate context), each tested in fresh sessions and shared with the team |
 | [Agent workshop](workshops/harness/AGENT-WORKSHOP.md) | One scheduled agent with a job description, dry runs on past days, a routine or GitHub Actions schedule, and two weeks of probation at the lowest autonomy tier |
 | [Crew workshop](workshops/harness/CREW-WORKSHOP.md) (advanced) | An orchestrator agent that dispatches worker subagents, each with one MCP or API connection, checks their results against contracts, and runs in a loop and on a schedule |
+| [Company workshop](workshops/harness/COMPANY-WORKSHOP.md) (as a team) | The company's shared setup in one private repository: a short core every session loads, a wiki Claude reads on demand, agent roles with written limits, and one schedule of every recurring task, installed on everyone's machine and tested |
 
 The [starter files](workshops/harness/README.md) list where each file goes in your repo.
 

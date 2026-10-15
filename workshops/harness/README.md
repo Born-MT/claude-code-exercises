@@ -50,6 +50,7 @@ and two weeks of probation at the lowest autonomy tier.
 | 8 Crew | [`run-cycle.SKILL.md`](8-crew/run-cycle.SKILL.md) | `.claude/skills/run-cycle/SKILL.md` | One cycle, invocable by `/loop`, a routine or a workflow | Crew workshop |
 | 8 Crew | [`crew.settings.json`](8-crew/crew.settings.json) | merge into `.claude/settings.json` | No nesting below the workers; allow rules for the workers' tools | Crew workshop |
 | 8 Crew | [`crew-workflow.yml`](8-crew/crew-workflow.yml) | `.github/workflows/<crew>.yml` | The crew on a GitHub Actions cron, Claude on a read-only token | Crew workshop |
+| Company | [`company/`](company/) | a private `<company>-claude` repository | The company setup as a repository: a short core (`core/COMPANY.md`), a wiki skill with five pages, the `/company:onboard` command, role cards and agents, the schedule, and a ten-question test. It's a plugin marketplace, so people install it with two commands | Company workshop |
 
 ## Order to install them
 
@@ -64,6 +65,8 @@ and two weeks of probation at the lowest autonomy tier.
 7. **A scheduled agent** only after all of the above, starting at Tier 0.
 8. **A crew** (an orchestrator with worker subagents) only after one agent has held its
    tier for two weeks. The [crew workshop](CREW-WORKSHOP.md) builds it.
+9. **The company setup** last, as a team: the shared core, wiki, roles and schedule every
+   person and agent uses. The [company workshop](COMPANY-WORKSHOP.md) builds it.
 
 ## Notes per file
 

@@ -60,6 +60,7 @@ jobs:
           # One Bash rule per command; a compound check (a && b) needs a rule for each part.
           claude_args: |
             --max-turns 30
+            --max-budget-usd 2
             --allowedTools "Read,Grep,Glob,Edit(agent-out/**),Bash(<check command> *),Bash(git log *),Bash(git diff *)"
 
       - uses: actions/upload-artifact@v4

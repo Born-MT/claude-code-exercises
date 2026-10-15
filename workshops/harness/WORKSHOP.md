@@ -319,7 +319,7 @@ in. (It may show genuine angle brackets in your own code examples; read the matc
 ## Facilitator notes
 
 - **Keep the opening to 15 minutes.** If the team saw the kickoff talk, recap the six
-  parts (slide 5) and move on. If not, show slides 3, 5 and 19 of the 20 (the claim, the
+  parts (slide 5) and move on. If not, show slides 3, 5 and 19 of the 21 (the claim, the
   six parts, the training path) and send the deck as reading.
 - **Keep the deck's setup reference open during Labs 2–4.** Slide 7 shows where every
   instruction lives and when it loads; slide 16 is the whole file layout and the commands that

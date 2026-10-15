@@ -35,7 +35,7 @@ setup that every person and every scheduled agent uses, so it comes last.
 
 ## Session 0: the kickoff talk
 
-The deck "The Harness, Not the Model" has 16 slides. Present it as a talk of about 60
+The deck "The Harness, Not the Model" has 20 slides; 16–19 are a setup reference (context, skills and commands, the full file layout) that the talk skips and the workshops use. Present it as a talk of about 60
 minutes, the week before the harness workshop.
 
 | Slides | Time | Do |

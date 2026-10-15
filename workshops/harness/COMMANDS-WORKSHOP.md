@@ -46,7 +46,7 @@ Facts the labs rely on (Claude Code docs, checked 2026-10-12):
 
 | # | Block | Time | Output (evidence) | Starter files |
 |---|-------|------|-------------------|---------------|
-| 1 | **Opening.** Commands are skills; the six decisions; the three shapes you'll build. | 15 min | — | — |
+| 1 | **Opening.** Commands are skills; the six decisions; the three shapes you'll build. Show slides 17 and 18 of the deck (where the file goes, anatomy of a command). | 15 min | — | — |
 | 2 | **Lab 1** — specify three commands. | 20 min | Three spec cards | `commands/command-spec.md` |
 | 3 | **Lab 2** — a context command. | 35 min | `/pr-context` working on a real PR; tests 1–5 | `commands/pr-context.SKILL.md` |
 | 4 | **Lab 3** — an action command only you can start. | 30 min | `/release-notes` writing one file; tests 1–3 and 6 | `commands/release-notes/` |

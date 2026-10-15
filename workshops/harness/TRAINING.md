@@ -35,18 +35,18 @@ setup that every person and every scheduled agent uses, so it comes last.
 
 ## Session 0: the kickoff talk
 
-The deck "The Harness, Not the Model" has 20 slides; 16–19 are a setup reference (context, skills and commands, the full file layout) that the talk skips and the workshops use. Present it as a talk of about 60
+The deck "The Harness, Not the Model" has 20 slides, in the order you present them: each part is followed by how to set it up. Present it as a talk of about 60
 minutes, the week before the harness workshop.
 
 | Slides | Time | Do |
 |--------|------|----|
 | Cover to "parts" (1–5) | 15 min | The claim and the six parts |
-| Loop to verify (6–12) | 15 min | One part per slide, plus the four ways a context goes bad (9) after memory; skip any part the team already does well |
-| Discuss (13) | 20 min | The five questions. Write down every answer that names a repo, a command or a person |
-| First steps and the training path (14–15) | 10 min | Fill the brackets on slide 14 from the discussion; show slide 15 and book the sessions |
+| The six parts and their setup (6–16) | 25 min | Loop; tools, then skills and commands (8–9); memory, the four ways a context goes bad, and what loads when (10–12); reliability, permissions, verify; the whole setup on one slide (16). Go faster on parts the team already does well |
+| Discuss (17) | 15 min | The five questions. Write down every answer that names a repo, a command or a person |
+| First steps and the training path (18–19) | 5 min | Fill the brackets on slide 18 from the discussion; show slide 19 and book the sessions |
 
 If there's no separate slot, send the deck as a pre-read, and the harness workshop's
-15-minute opening shows slides 3, 5 and 15 only.
+15-minute opening shows slides 3, 5 and 19 only.
 
 ## Before week 1
 

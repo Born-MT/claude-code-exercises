@@ -319,10 +319,10 @@ in. (It may show genuine angle brackets in your own code examples; read the matc
 ## Facilitator notes
 
 - **Keep the opening to 15 minutes.** If the team saw the kickoff talk, recap the six
-  parts (slide 5) and move on. If not, show slides 3, 5 and 15 of the 20 (the claim, the
+  parts (slide 5) and move on. If not, show slides 3, 5 and 19 of the 20 (the claim, the
   six parts, the training path) and send the deck as reading.
-- **Keep the deck's setup reference open during Labs 2–4.** Slide 16 shows where every
-  instruction lives and when it loads; slide 19 is the whole file layout and the commands that
+- **Keep the deck's setup reference open during Labs 2–4.** Slide 12 shows where every
+  instruction lives and when it loads; slide 16 is the whole file layout and the commands that
   check it.
 - **Lab 2 is the workshop.** If time runs short, cut Lab 5 to a homework decision and
   shorten Lab 3, but don't cut the live trip of the Stop hook. A hook nobody has seen fire

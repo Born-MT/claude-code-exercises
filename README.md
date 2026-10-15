@@ -44,7 +44,7 @@ facilitator checklist.
 | [Commands workshop](workshops/harness/COMMANDS-WORKSHOP.md) | Three custom commands in your repo (one that loads context, one only you can start, one that explores in a separate context), each tested in fresh sessions and shared with the team |
 | [Agent workshop](workshops/harness/AGENT-WORKSHOP.md) | One scheduled agent with a job description, dry runs on past days, a routine or GitHub Actions schedule, and two weeks of probation at the lowest autonomy tier |
 | [Crew workshop](workshops/harness/CREW-WORKSHOP.md) (advanced) | An orchestrator agent that dispatches worker subagents, each with one MCP or API connection, checks their results against contracts, and runs in a loop and on a schedule |
-| [Company workshop](workshops/harness/COMPANY-WORKSHOP.md) (as a team) | The company's shared setup in one private repository: a short core every session loads, a wiki Claude reads on demand, agent roles with written limits, and one schedule of every recurring task, installed on everyone's machine and tested |
+| [Company workshop](workshops/harness/COMPANY-WORKSHOP.md) (as a team) | The company's shared setup in one private repository: a short core every session loads, a wiki Claude reads on demand, agent roles with written limits, and one schedule of every recurring task, installed on everyone's machine and tested. Includes a filled-in example for a fictional company and [twelve situations](workshops/harness/company-example/SITUATIONS.md) to practise on |
 
 The [starter files](workshops/harness/README.md) list where each file goes in your repo.
 

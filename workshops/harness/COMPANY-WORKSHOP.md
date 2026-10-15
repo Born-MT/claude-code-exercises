@@ -13,6 +13,11 @@ everyone's machine and tested by someone who didn't build it.
 Unlike the other workshops, this is team work. Split the room into three groups for Labs 2
 to 4, then come back together.
 
+**A worked example.** [`company-example/`](company-example/) is the same setup filled in for a
+fictional agency, Lantern Works, with twelve [situations](company-example/SITUATIONS.md) to
+practise on: what to ask, what should answer, what good and failure look like. Show it in
+the opening; if the room can't use real company data, run the whole workshop on it.
+
 **Keep the result private.** The starter files are public; your filled-in company
 repository describes clients, systems and people, and belongs in a private repository in
 your organization.
@@ -244,6 +249,10 @@ reader. Match the cadence to how often the answer changes.
    pages.
 4. Every wrong or invented answer becomes a fix: a page, a role card or a core line. Make
    the fix, then re-ask that question in a fresh session.
+5. Write three situations of your own in the style of
+   [`company-example/SITUATIONS.md`](company-example/SITUATIONS.md): one question new joiners
+   really ask, one request that must be refused, and one the wiki can't answer. Keep them in
+   `tests/` and rerun them after every change to the core or the wiki.
 
 **Acceptance check**
 

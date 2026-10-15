@@ -1,0 +1,14 @@
+{
+  "name": "lantern-marketplace",
+  "description": "Lantern Works's Claude Code plugins",
+  "owner": {
+    "name": "Lantern Works"
+  },
+  "plugins": [
+    {
+      "name": "company",
+      "source": "./plugins/company",
+      "description": "Lantern Works's wiki, commands and agent roles for Claude Code"
+    }
+  ]
+}

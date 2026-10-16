@@ -416,6 +416,52 @@ Agents start by themselves when a ticket reaches their stage. People decide at t
 verdict from Review sends the work back to Build; two in a row stop the flow. No agent
 pushes, merges or deploys.
 
+## Run the agents
+
+Always from inside a client repository, with the plugin loaded (see Start). The agents
+are subagents: they run in their own context, with only the tools their agent file lists,
+and report back.
+
+**The whole flow, one ticket.** The dispatcher hands each stage to its agent and stops at
+every gate:
+
+```
+/company:work HRB-142
+```
+
+When it stops, answer as the person at the gate (`Ines approved, P2`, `Sam merged it`) and
+it carries on. The ticket text comes from `issues/new-issues.md`; to run a ticket that
+isn't there, paste it: `/company:work LMP-9: the Lamp modal doesn't close on Escape`.
+
+**One agent, directly.** Name it and give it the input its stage needs:
+
+| Agent | Ask | What it needs |
+|-------|-----|---------------|
+| `company:triage-lead` | `Use the company:triage-lead agent to triage the issues in ../issues/new-issues.md` | Issue text |
+| `company:planner` | `Use the company:planner agent to plan HRB-142: <ticket text>` | The ticket, ideally the triage row |
+| `company:developer` | `Use the company:developer agent to build this plan: <paste the plan>` | A plan with a branch, a failing test and an acceptance check |
+| `company:reviewer` | `Use the company:reviewer agent to review the branch fix/HRB-142-cart-total against this plan: <paste the plan>` | A branch with a commit on it, and the plan |
+
+Each agent's description says to use it whenever a ticket reaches its stage, so a plain
+request often routes itself: `triage these issues` picks the triage lead without naming it.
+Say the name when it matters.
+
+**Unattended, from a script.** `scripts/triage.sh` runs the triage lead headless on the
+new issues: read-only tools, a turn and budget cap, the dispatcher pinned to a cheaper
+model, output in `triage-report.md`. It's the schedule's "Triage new issues" task run by
+hand. Copy it to make any other read-only agent run unattended; never give an unattended
+run edit or push rights.
+
+**See what an agent did.** In the session, open the agent's result; in a headless run,
+`claude-result.json` holds the dispatcher's messages and the transcript under
+`~/.claude/projects/<sandbox>/<session>/subagents/` holds each agent's own turns.
+
+**Change how they run.** An agent's tools, model and instructions are in
+`lantern-claude/plugins/company/agents/<name>.md`; its job and limits are the role card in
+`lantern-claude/roles/<name>.md`. Whether a stage starts by itself or waits to be asked is
+the "Starts" column in `FLOW.md`. Run `scripts/validate.sh` and restart Claude Code after
+a change.
+
 ## Try it, about 15 minutes
 
 In `harbour-shop`:

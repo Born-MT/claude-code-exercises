@@ -80,7 +80,20 @@ expected: read each one before you approve it.
   Agents whose stage says "Starts: by itself" run without asking, and their descriptions
   say "use proactively" so Claude also hands them that work outside the command.
 - To change who does what, edit `FLOW.md` and the agent files, then run
-  `claude plugin validate lantern-claude/plugins/company`.
+  `scripts/validate.sh`.
+
+## Running the agents
+
+Three ways, all from inside a client repository with the plugin loaded:
+
+| How | Command | When |
+|-----|---------|------|
+| The whole flow | `/company:work HRB-142` | A ticket from `issues/new-issues.md`, or pasted after the key. Answer at each gate (`Ines approved, P2`) to continue |
+| One agent | `Use the company:planner agent to plan HRB-142: <ticket text>` | Trying or testing a single role. Give it what its stage needs: the ticket, a plan, or a branch and plan |
+| Unattended | `scripts/triage.sh` | The triage lead on the new issues: read-only, capped, model pinned, result in `triage-report.md` |
+
+The sandbox's own `README.md` has a table of what each agent needs and where to find what
+it did.
 
 ## Reset
 

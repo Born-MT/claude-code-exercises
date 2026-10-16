@@ -51,7 +51,7 @@ and two weeks of probation at the lowest autonomy tier.
 | 8 Crew | [`crew.settings.json`](8-crew/crew.settings.json) | merge into `.claude/settings.json` | No nesting below the workers; allow rules for the workers' tools | Crew workshop |
 | 8 Crew | [`crew-workflow.yml`](8-crew/crew-workflow.yml) | `.github/workflows/<crew>.yml` | The crew on a GitHub Actions cron, Claude on a read-only token | Crew workshop |
 | Company | [`company/`](company/) | a private `<company>-claude` repository | The company setup as a repository: a short core (`core/COMPANY.md`), a wiki skill with five pages, the `/company:onboard` command, role cards and agents, the schedule, and a ten-question test. It's a plugin marketplace, so people install it with two commands | Company workshop |
-| Company | [`company-example/`](company-example/) | nowhere: read it, or load it for a session | The same setup filled in for a fictional agency, with twelve [situations](company-example/SITUATIONS.md) to practise on | Company workshop |
+| Company | [`company-example/`](company-example/) | nowhere: read it, load it for a session, or build a sandbox with [`try-it/`](company-example/try-it/README.md) | The same setup filled in for a fictional agency: four agent employees, a flow with people at the gates, `/company:work`, and twelve [situations](company-example/SITUATIONS.md) to practise on | Company workshop |
 
 ## Order to install them
 

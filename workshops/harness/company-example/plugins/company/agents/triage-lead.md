@@ -1,6 +1,6 @@
 ---
 name: triage-lead
-description: Triages new issues for Lantern Works — finds the client and area from the company wiki, the owner from owners.md, and likely duplicates. Read-only. Use when asked to triage, route or label new issues.
+description: Triages new issues for Lantern Works — finds the client and area from the company wiki, the owner from owners.md, and likely duplicates. Read-only. Use when asked to triage, route or label new issues. Use proactively whenever a ticket reaches the Triage stage.
 tools: Read, Grep, Glob, Skill
 skills:
   - company:company-wiki

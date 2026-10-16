@@ -16,7 +16,10 @@ to 4, then come back together.
 **A worked example.** [`company-example/`](company-example/) is the same setup filled in for a
 fictional agency, Lantern Works, with twelve [situations](company-example/SITUATIONS.md) to
 practise on: what to ask, what should answer, what good and failure look like. Show it in
-the opening; if the room can't use real company data, run the whole workshop on it.
+the opening; if the room can't use real company data, run the whole workshop on it. To see
+it working end to end, [`company-example/try-it/`](company-example/try-it/README.md) builds a
+sandbox with two client repositories and runs a ticket through the agent employees and the
+people's gates with `/company:work`.
 
 **Keep the result private.** The starter files are public; your filled-in company
 repository describes clients, systems and people, and belongs in a private repository in

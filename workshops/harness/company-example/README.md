@@ -19,13 +19,19 @@ Same layout as the template:
 | Wiki, on demand | [`plugins/company/skills/company-wiki/`](plugins/company/skills/company-wiki/) |
 | Onboarding command | [`plugins/company/skills/onboard/`](plugins/company/skills/onboard/) |
 | Role card and agent | [`roles/triage-lead.md`](roles/triage-lead.md), [`plugins/company/agents/triage-lead.md`](plugins/company/agents/triage-lead.md) |
+| More agent employees | Planner, developer and reviewer: [`roles/`](roles/), [`plugins/company/agents/`](plugins/company/agents/) |
+| Flow of work and dispatcher | [`plugins/company/skills/work/`](plugins/company/skills/work/): `FLOW.md` and `/company:work <ticket>` |
 | Schedule | [`schedule/SCHEDULE.md`](schedule/SCHEDULE.md) |
 | Test sheet | [`tests/company-questions.md`](tests/company-questions.md) |
 | Situations | [`SITUATIONS.md`](SITUATIONS.md) |
 
 ## Try it
 
-You don't need a company repository. Copy this folder somewhere, then:
+**The full working setup:** [`try-it/`](try-it/README.md) builds a sandbox with this setup,
+two client repositories with real code and bugs, and new issues, then walks through a
+15-minute run, including a ticket moving through the agent employees and people's gates.
+
+**Just the setup, quickly:** you don't need a company repository. Copy this folder somewhere, then:
 
 1. Add `@<path to this folder>/core/COMPANY.md` to `~/.claude/CLAUDE.md`, or for a
    one-off try, start Claude Code in a scratch folder whose `CLAUDE.md` imports it (Claude

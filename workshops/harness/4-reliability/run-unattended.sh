@@ -22,5 +22,7 @@ claude --bare -p "$(cat "$PROMPT_FILE")" \
   --max-budget-usd "$MAX_BUDGET_USD" \
   --output-format json > claude-result.json
 
-jq -r '.result' claude-result.json
-echo "Estimated cost: $(jq -r '.total_cost_usd' claude-result.json) USD" >&2
+# The CLI writes either one result object or an array of messages ending in it.
+RESULT='if type=="array" then (map(select(.type=="result")) | last) else . end'
+jq -r "$RESULT | .result // empty" claude-result.json
+jq -r "$RESULT | \"Estimated cost: \(.total_cost_usd) USD; \(.subtype)\"" claude-result.json >&2

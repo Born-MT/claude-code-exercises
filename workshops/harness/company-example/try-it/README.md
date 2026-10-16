@@ -19,6 +19,13 @@ bash templates/harness/company-example/try-it/setup.sh ~/lantern-sandbox
 | `harbour-shop/` | Harbour Books' shop: Node, `node --test`, a discount-rounding bug (HRB-142) |
 | `meadow-booking/` | Meadow Health's booking: regulated, fixture data only, a missing-slot bug (MDW-31) |
 | `issues/new-issues.md` | Three new issues; the third tries to give the agent orders |
+| `scripts/` | `validate.sh` checks the plugin and runs both repositories' tests; `triage.sh` runs the triage lead unattended, read-only and capped |
+
+Each client repository comes set up the way the harness workshop teaches: `package.json`
+with `npm test`, a `CLAUDE.md` that imports the company core, `.claude/settings.json`
+(tests and read-only git allowed, edits ask, `git push` and `git merge` denied, `.env`
+unreadable), a Stop hook that keeps Claude from finishing while the tests fail, and a CI
+workflow. The sandbox's own `README.md` lists them.
 
 ## Start a session
 
